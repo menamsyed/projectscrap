@@ -1,0 +1,104 @@
+<ScrollView contentContainerStyle={styler.container}>
+    <View> 
+      <View style={{marginBottom:40}}>
+        <Text style={{color:'white',fontSize:25,padding:5}}>Welcome to California Pizza</Text>
+        <Text style={{ color:'white',fontSize:15,padding:5}}>Please enter your details to continue</Text>
+      </View>
+
+      <View>
+        <Text style={{ color:'white',fontSize:17,padding:5}} >Full Name</Text>
+        <TextInput placeholder='Enter your full name' style={styler.inputbox} placeholderTextColor='black'></TextInput>
+        <Text style={{ color:'white',fontSize:17,padding:5}}>Email</Text>
+        <TextInput placeholder='Enter your Email' style={styler.inputbox} placeholderTextColor='black'></TextInput>
+        <Text style={{ color:'white',fontSize:17,padding:5}}>Mobile Number</Text>
+        <TextInput placeholder='03XX-XXXXXXX' style={styler.inputbox} placeholderTextColor='black'></TextInput>
+      </View>
+
+      <View>
+        <TouchableOpacity style={styler.button}  ><Text style={{textAlign:'center', color:'black', fontSize:15}}>Continue</Text></TouchableOpacity>
+      </View>
+      <View style={{justifyContent:'center' , alignItems:'center' ,marginTop:20}}>
+         <TouchableOpacity><Text style={{color:'white' ,textDecorationLine:'underline' }}>Already have an account?</Text></TouchableOpacity>
+      </View>
+       
+      </View>
+   
+  </ScrollView>
+  )}
+  
+
+const styler = StyleSheet.create({
+  container:{
+    justifyContent:'center',
+    alignItems:'center',
+    flex:1,
+    backgroundColor:'#f73b3e',
+
+  },
+  inputbox:{
+    backgroundColor:'white',
+    color:'black',
+    borderRadius:6,
+    marginBottom:5
+    
+  },
+  button:{
+    backgroundColor:'green',
+    padding:12,
+    borderRadius:14,
+    marginTop:30
+
+  }
+})
+
+.....................................
+function App() {
+  return(
+    <> 
+    <Cat name='katie'/>
+    <Cat name='cattty'/>
+    <Dog x='bulldog'/>
+    </>
+     
+  );
+}
+  
+export default App;
+
+//child component
+const Cat = (props)=>{
+  const [isHungary,setIsHungary] = useState(true);
+
+
+   
+  return(
+    <SafeAreaView style={{padding:20}}>
+    <Text>CAT FEEDING</Text>
+
+    <Text>Im {props.name} and im {isHungary?"hungary":"full"}</Text>
+    <Button
+      onPress= { 
+        ()=>{
+        setIsHungary(!isHungary)
+      }}
+      title={isHungary? "pour me some milk, im hungary":"Thankyou"}
+      //disabled={!isHungary}
+    ></Button>
+  </SafeAreaView>
+
+   );
+}
+
+const Dog = (props)=> {
+  var a = 'PRESS MEE';
+  return(
+    <View style={{padding:20}}>
+      <Text>{props.x}</Text>
+      <Button
+        title={a}   
+      ></Button>
+    </View>
+
+  );
+
+}
